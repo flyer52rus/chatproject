@@ -13,29 +13,43 @@ public class ConsoleHelper {
     }
 
     public static String readString() {
-        String str = null;
-        do {
+        while(true) {
             try {
-                str = bufferedReader.readLine();
+                return bufferedReader.readLine();
             } catch (IOException ex) {
                 System.out.println("Произошла ошибка при попытке ввода текста. Попробуйте еще раз.");
             }
-        } while (str == null);
-        return str;
+        }
     }
 
-    public static int readInt() {
-        int numb = -2_111_222_333;
-        do {
-            try {
-                numb = Integer.parseInt(readString());
 
+    public static int readInt() {
+        while(true) {
+            try {
+                return Integer.parseInt(readString());
             } catch (NumberFormatException ex) {
                 System.out.println("Произошла ошибка при попытке ввода числа. Попробуйте еще раз.");
             }
-        } while (numb == -2_111_222_333);
-        return numb;
+        }
     }
 
 
 }
+
+
+//class Test1 {
+//    public static void main(String[] args) {
+//        ConsoleHelper consoleHelper = new ConsoleHelper();
+//        String str = consoleHelper.readString();
+//
+//
+//
+//        System.out.println("воу, readString работает и вернул - " + str);
+//
+//        int i = consoleHelper.readInt();
+//
+//        System.out.println("воу, readInt работает и вернул - " + i);
+//
+//
+//    }
+//}
